@@ -38,9 +38,9 @@ Recipe.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
-    servings: PropTypes.string.isRequired,
+    servings: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
-    difficulty: PropTypes.oneOf('easy', 'medium', 'hard'),
+    difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']),
   }).isRequired,
 };
