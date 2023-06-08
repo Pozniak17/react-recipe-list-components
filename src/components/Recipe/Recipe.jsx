@@ -1,35 +1,50 @@
 import PropTypes from 'prop-types';
+import {
+  Wrapper,
+  Title,
+  InformWrapper,
+  InformText,
+  ChipTitle,
+  ChipWrapper,
+  Chip,
+} from './Recipe.styled';
 import { BsAlarm } from 'react-icons/bs';
 import { HiOutlineChartPie, HiOutlineChartBar } from 'react-icons/hi';
 
 export const Recipe = ({
-  recipesItem: { id, name, image, time, servings, calories },
+  recipesItem: { id, name, image, time, servings, calories, difficulty },
 }) => {
   //   console.log(recipesItem);
   return (
-    <div key={id}>
-      <h2>{name}</h2>
-      <img src={image} width={240} alt={name} />
-      <div>
-        <p>
+    <Wrapper key={id}>
+      <Title>{name}</Title>
+      <img src={image} width={300} alt={name} />
+      <InformWrapper>
+        <InformText>
           <BsAlarm /> {time} min
-        </p>
+        </InformText>
 
-        <p>
+        <InformText>
           <HiOutlineChartPie /> {servings} servings
-        </p>
+        </InformText>
 
-        <p>
+        <InformText>
           <HiOutlineChartBar /> {calories} calories
-        </p>
-      </div>
-      <h3>Difficulty</h3>
-      <div>
-        <span>Easy</span>
-        <span>Medium</span>
-        <span>Hard</span>
-      </div>
-    </div>
+        </InformText>
+      </InformWrapper>
+      <ChipTitle>Difficulty</ChipTitle>
+      <ChipWrapper>
+        <Chip variant="easy" isActive={difficulty === 'easy'}>
+          Easy
+        </Chip>
+        <Chip variant="medium" isActive={difficulty === 'medium'}>
+          Medium
+        </Chip>
+        <Chip variant="hard" isActive={difficulty === 'hard'}>
+          Hard
+        </Chip>
+      </ChipWrapper>
+    </Wrapper>
   );
 };
 
